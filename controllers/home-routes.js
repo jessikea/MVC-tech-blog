@@ -1,22 +1,22 @@
 const router = require('express').Router();
-const { User, Comment, Post } = require('../../models');
+const { User, Comment, Post } = require('../models');
 // const withAuth = require('../../utils/auth');
 
 // GET all post
 
 router.get('/', async (req, res) => {
-    try{
-        const postData = await Post.findAll({
-            include: [User],
-        });
-
-        const posts = postData.map((post) => post.get({ plain: true }));
-        res.render('User-Posts', { posts});
-
+    try {
+      const postData = await Post.findAll({
+        include: [User],
+      });
+  
+      const posts = postData.map((post) => post.get({ plain: true }));
+  
+      res.render('all-posts', { posts });
     } catch (err) {
-        res.status(500).json(err);
+      res.status(500).json(err);
     }
-});
+  });
 
 // GET one post
 router.get('/post/:id', async (req, res) => {
@@ -30,7 +30,7 @@ router.get('/post/:id', async (req, res) => {
             });
             if (postData){
                 const post = postData.get({ plain: true });
-                res.render('User-Post', { post });
+                res.render('post', { post });
             }
             else {
                 res.status(404).end();
