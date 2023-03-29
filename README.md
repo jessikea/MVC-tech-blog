@@ -26,7 +26,9 @@ Github repo:
 Screenshots: 
 
 ![Screenshot1](./images/Techblog1.png)
+
 ![Screenshot2](./images/Techblog2.png)
+
 ![Screenshot3](./images/Techblog3.png)
 
 
